@@ -13,9 +13,6 @@
   </head>
   <body>
     <style>
-      * {
-        font-family: sans-serif;
-      }
       .col-1 {
         padding-top: 50px;
       }
@@ -26,10 +23,6 @@
 
       .buttonCheck {
         border-radius: 12px;
-      }
-
-      .icon {
-        font-size: 25px;
       }
 
       .form-check-input {
@@ -72,7 +65,7 @@
         </div>
 
         <div class="col-4 ms-auto">
-          <div class="text-left fw-bold" style="font-size: 25px">Panadol</div>
+          <div class="text-left fw-bold" style="font-size: 16px">Panadol</div>
           <div class="text-left lh-lg" style="padding-bottom: 10px">Rp 30.000</div>
           <div class="text-left">Quantity : 3</div>
           <div class="text-left">Sub Total : 90.000</div>
@@ -98,7 +91,7 @@
         </div>
 
         <div class="col-4 ms-auto">
-          <div class="text-left fw-bold" style="font-size: 25px">Panadol</div>
+          <div class="text-left fw-bold" style="font-size: 16px">Panadol</div>
           <div class="text-left lh-lg" style="padding-bottom: 10px">Rp 30.000</div>
           <div class="text-left">Quantity : 3</div>
           <div class="text-left">Sub Total : 90.000</div>
@@ -117,7 +110,7 @@
         </div>
 
         <div class="col-4 ms-auto">
-          <div class="text-left fw-bold" style="font-size: 25px">Panadol</div>
+          <div class="text-left fw-bold" style="font-size: 16px">Panadol</div>
           <div class="text-left lh-lg" style="padding-bottom: 10px">Rp 30.000</div>
           <div class="text-left">Quantity : 3</div>
           <div class="text-left">Sub Total : 90.000</div>
@@ -133,7 +126,7 @@
     <section class="container mt-5">
       <div class="text-left lh-lg" style="padding-bottom: 10px">Jumlah Barang : 2</div>
       <div class="text-left pb-4">Total Harga : 180.000</div>
-      <button type="button" class="buttonCheck btn btn-outline-dark">Check Out</button>
+      <a href="/payment" type="button" class="buttonCheck btn btn-outline-dark">Check Out</a>
     </section>
     <!-- End Checkout -->
 

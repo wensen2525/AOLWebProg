@@ -27,4 +27,8 @@ Route::get('keranjang', function () {
     return view('cart');
 })->name('keranjang');
 
+Route::get('payment', function(){
+    return view('paymentMethod');
+})->name('payment');
+
 Auth::routes();
