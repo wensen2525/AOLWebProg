@@ -1,4 +1,27 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top top-0">
+<section class="bg-section-top">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            Selamat datang di Holadoc!
+            <div class="d-flex gap-2 align-items-center py-2">
+                <div class="d-flex gap-2">
+                    <i class="bi bi-123"></i>
+                    <p class="m-0">Deliver to <b>423651</b></p>
+                </div>
+                <div class="border-end border-primary" style="min-height: 20px"></div>
+                <div class="d-flex gap-2">
+                    <i class="bi bi-123"></i>
+                    <p class="m-0">Deliver to <b>423651</b></p>
+                </div>
+                <div class="border-end border-primary" style="min-height: 20px"></div>
+                <div class="d-flex gap-2">
+                    <i class="bi bi-123"></i>
+                    <p class="m-0">Deliver to <b>423651</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top top-0 border-bottom py-2">
     <div class="container">
         <a class="navbar-brand fw-bold" href="{{ route('home') }}">HOLADOC</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -67,3 +90,8 @@
         @endguest
     </div>
 </nav>
+<style>
+    .bg-section-top{
+        background: rgb(235, 235, 235);
+    }
+</style>
