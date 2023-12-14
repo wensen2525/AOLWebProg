@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Imports\ImportCategories;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -48,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('category.show', compact('category'));
     }
 
     /**
@@ -84,4 +86,21 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function import(Request $request)
+      {
+        // dd($request);
+            $this->validate($request, [
+                  'excel_category' => 'required|mimes:csv,xls,xlsx'
+            ]);
+            
+            Excel::import(new ImportCategories, $request->file('excel_category'));
+
+            if ($request->hasFile('excel_category')) {
+                  $proofNameToStore = $request->file('excel_category')->getClientOriginalName();
+                  $request->file('excel_category')->storeAs('public/files/imports', $proofNameToStore);
+            }
+      
+            return redirect()->back();
+      }
 }

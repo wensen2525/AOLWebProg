@@ -5,17 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class Address extends Model
 {
     use HasFactory;
 
-    protected $table = 'payments';
+    use HasFactory;
+
+    protected $table = 'addresses';
     protected $primaryKey = 'id';
     protected $timestamp = true;
     protected $guarded = [];
 
-    public function purchase()
+    public function user()
     {
-        return $this->belongsTo(Purchase::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
     }
 }

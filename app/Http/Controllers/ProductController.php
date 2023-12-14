@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Imports\ImportProducts;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
-      public function __construct()
-      {
-            $this->middleware('auth');
-      }
+      // public function __construct()
+      // {
+      //       $this->middleware('auth');
+      // }
 
       public function index()
       {
@@ -36,7 +38,10 @@ class ProductController extends Controller
 
       public function show(Product $product)
       {
-            return view('products.show', compact('product'));
+            return view('products.show', [
+                  'product' => $product,
+                  'other_products' => Product::where('category_id', $product->category->id)->take(4)->get(),
+            ]);
       }
 
       public function edit(Product $product)
@@ -59,5 +64,21 @@ class ProductController extends Controller
             $product->delete();
 
             return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+      }
+
+      public function import(Request $request)
+      {
+            $this->validate($request, [
+                  'excel_product' => 'required|mimes:csv,xls,xlsx'
+            ]);
+            
+            Excel::import(new ImportProducts, $request->file('excel_product'));
+
+            if ($request->hasFile('excel_product')) {
+                  $proofNameToStore = $request->file('excel_product')->getClientOriginalName();
+                  $request->file('excel_product')->storeAs('public/files/imports', $proofNameToStore);
+            }
+      
+            return redirect()->back();
       }
 }

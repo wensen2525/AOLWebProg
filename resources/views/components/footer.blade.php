@@ -37,10 +37,9 @@
                     <div class="mb-4">
                         <b class="fs-5">Kategori terbaik</b>
                         <ul class="p-0 m-0 pt-3" style="list-style: none">
-                            <li>1</li>
-                            <li>1</li>
-                            <li>1</li>
-                            <li>1</li>
+                            <li><a href="{{ route('category.show', 1) }}" class="text-decoration-none text-white">Alergi</a></li>
+                            <li><a href="{{ route('category.show', 2) }}" class="text-decoration-none text-white">Pencernaan</a></li>
+                            <li><a href="{{ route('category.show', 3) }}" class="text-decoration-none text-white">Suplemen & Vitamin</a></li>
                         </ul>
                     </div class="mb-4">
                     <div>

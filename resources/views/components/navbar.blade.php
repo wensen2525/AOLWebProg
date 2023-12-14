@@ -1,8 +1,8 @@
 <section class="bg-section-top">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="py-1 text-center">
             Selamat datang di Holadoc!
-            <div class="d-flex gap-2 align-items-center py-2">
+            {{-- <div class="d-flex gap-2 align-items-center py-2">
                 <div class="d-flex gap-2">
                     <i class="bi bi-123"></i>
                     <p class="m-0">Deliver to <b>423651</b></p>
@@ -17,7 +17,7 @@
                     <i class="bi bi-123"></i>
                     <p class="m-0">Deliver to <b>423651</b></p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
@@ -39,31 +39,38 @@
                         href="{{ route('kategori') }}">Kategori</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('keranjang') ? 'active' : '' }}"
-                        href="{{ route('keranjang') }}">Keranjang</a>
+                    <a class="nav-link {{ Request::is('purchases') ? 'active' : '' }}"
+                        href="{{ route('purchases.index') }}">Pesananku</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('cart') ? 'active' : '' }}"
+                        href="{{ route('cart.index') }}">Keranjang</a>
                 </li>
                 @guest
-                <li class="nav-item d-lg-none d-block">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
-                <li class="nav-item d-lg-none d-block">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
-                </li>
+                    <li class="nav-item d-lg-none d-block">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item d-lg-none d-block">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
                 @else
-                <li class="nav-item dropdown d-lg-none d-block">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ auth()->user()->name }}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+                    <li class="nav-item dropdown d-lg-none d-block">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/">Home</a></li>
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                    {{ __('Logout') }}
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                 @endguest
             </ul>
         </div>
@@ -79,19 +86,23 @@
                     {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="/">Home</a></li>
                     <li>
-                        <hr class="dropdown-divider">
+                        
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                            {{ __('Logout') }}
+                            </button>
+                        </form>
                     </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </li>
         @endguest
     </div>
 </nav>
 <style>
-    .bg-section-top{
-        background: rgb(235, 235, 235);
+    .bg-section-top {
+        background: #09aed763;
     }
 </style>

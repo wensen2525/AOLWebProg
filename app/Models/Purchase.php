@@ -19,9 +19,9 @@ class Purchase extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function payment()
+    public function address()
     {
-        return $this->hasOne(Payment::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function purchaseDetails()
