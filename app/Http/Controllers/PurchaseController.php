@@ -101,7 +101,7 @@ class PurchaseController extends Controller
                             $cart->delete();
                             // dd('save');
                         } else {
-                            return redirect()->route('dashboard')->with('failed', 'Your cart is not found!');
+                            return redirect()->route('cart')->with('failed', 'Your cart is not found!');
                         }
                         $count_cart -= 1;
                     }
