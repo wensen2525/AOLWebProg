@@ -13,8 +13,10 @@
                                     <div class="d-flex gap-3 align-items-center">
                                         <b>Rp
                                             {{ number_format($purchase->totalPrice, 0, '.', '.') }}</b>
-                                        @if ($purchase->is_verified == false)
+                                        @if ($purchase->is_verified == false && $purchase->payment_due > now())
                                             <a href="{{ route('payment', $purchase) }}" class="btn btn-primary">Bayar</a>
+                                        @elseif($purchase->is_verified == false && $purchase->payment_due < now())
+                                            <p class="m-0 text-danger fw-bold">Expired</p>
                                         @endif
 
                                     </div>
