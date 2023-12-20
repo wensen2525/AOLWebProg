@@ -100,7 +100,6 @@ class CartController extends Controller
      */
     public function delete(Cart $cart)
     {
-        // dd($cart);
         $cart->delete();
 
         return redirect()->route('cart.index')->with('success', 'Telah berhasil dihapus!');
@@ -120,12 +119,9 @@ class CartController extends Controller
     }
 
     public function updatequantity(Request $request){
-        // dd($request);
         $cart = Cart::where('id', $request->cart_id)->first();
         $cart->update([
             'stock' => $request->quantity,
         ]);
-
-        // return redirect()->route('carts.index');
     }
 }

@@ -7,8 +7,8 @@
                 <div class="py-4">
                       <b class="fs-5">Kontak Kami</b>
                       <br>
-                      <div class="d-flex gap-2">
-                          <i class="bi bi-123"></i>
+                      <div class="d-flex gap-2 mt-2">
+                          <i class="bi bi-whatsapp"></i>
                           <p>
                               Whats App
                               <br>
@@ -16,9 +16,9 @@
                           </p>
                       </div>
                       <div class="d-flex gap-2">
-                          <i class="bi bi-123"></i>
+                          <i class="bi bi-telephone"></i>
                           <p>
-                              Whats App
+                              Telepon Kami
                               <br>
                               +62 812-4423-3234
                           </p>

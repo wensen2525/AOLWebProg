@@ -11,7 +11,7 @@
                                     value="{{ $cart->id }}" id="{{ $cart->id }}" />
                             </div>
                             <div class="col-11 d-flex gap-4 align-items-center">
-                                <img class="img-fluid" src="{{ asset('storage/images/products/Product1.svg') }}"
+                                <img class="img-fluid" src="{{ asset('storage/images/products/' . $cart->product->image) }}"
                                     style="width: 300px;height:150px;object-fit:contain" />
                                 <div class="d-flex align-items-center justify-content-between w-100">
                                     <div>
@@ -23,29 +23,38 @@
                                             {{ number_format($cart->product->price, 0, '.', '.') }}
                                         </div>
                                         {{-- <div class="text-left">Quantity : 3</div> --}}
-                                        <div class="text-left">Sub Total : Rp
-                                            {{ number_format($cart->product->price * $cart->stock, 0, '.', '.') }}</div>
+
                                         <div class="panel">
-                                            {{-- @if (isset($product->stock) && $product->stock != 0) --}}
                                             <div class="input-group quantity-group my-3 rounded-2"
                                                 style="width: 200px;">
-                                                <span class="input-group-btn">
-                                                    <button type="button"
-                                                        class="quantity-left-minus btn btn-primary btn-number"
-                                                        style="border-radius:100%" data-type="minus" data-field="">
-                                                        <span><i class="bi bi-dash-lg"></i></span>
-                                                    </button>
-                                                </span>
-                                                <input type="number" id="quantity"
-                                                    class="form-control input-number text-center border-0"
-                                                    value="{{ $cart->stock }}" min="1" max="20">
-                                                <span class="input-group-btn">
-                                                    <button type="button"
-                                                        class="quantity-right-plus btn btn-primary btn-number"
-                                                        style="border-radius:100%" data-type="plus" data-field="">
-                                                        <span><i class="bi bi-plus-lg"></i></span>
-                                                    </button>
-                                                </span>
+                                                <div class="text-left mb-3">Sub
+                                                    Total : <span id="totalPriceProduct_{{ $cart->id }}">Rp
+                                                    {{ number_format($cart->product->price * $cart->stock, 0, '.', '.') }}</span>
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <button type="button"
+                                                            class="quantity-left-minus btn btn-primary btn-number"
+                                                            style="border-radius:100%" data-type="minus" data-field="">
+                                                            <span><i class="bi bi-dash-lg"></i></span>
+                                                        </button>
+                                                    </span>
+                                                    <input type="hidden" id="cart_id" value="{{ $cart->id }}">
+                                                    <input type="hidden" id="price"
+                                                        value="{{ $cart->product->price }}">
+                                                    <input type="hidden" id="token" value="{{ csrf_token() }}" name="_token">
+                                                    <input type="number" id="quantity"
+                                                        class="form-control input-number text-center border-0"
+                                                        value="{{ $cart->stock }}" min="1" max="20">
+                                                    <span class="input-group-btn">
+                                                        <button type="button"
+                                                            class="quantity-right-plus btn btn-primary btn-number"
+                                                            style="border-radius:100%" data-type="plus" data-field="">
+                                                            <span><i class="bi bi-plus-lg"></i></span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                                
                                             </div>
                                             {{-- @endif --}}
                                         </div>
@@ -70,4 +79,3 @@
         </div>
     </section>
 </x-app>
-
