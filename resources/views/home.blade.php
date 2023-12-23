@@ -79,7 +79,7 @@
                 <div class="col-12 mb-4">
                     <div class="mb-4 border-bottom d-block" style="padding-block-end: 2px">
                         <h4 class="d-inline" style="border-bottom:3px solid #09AED7"><b><span
-                                    class="text-primary">Kategori </span>Terlaris</b></h4>
+                                    class="text-primary">Kategori </span></b></h4>
                     </div>
                     <div class="overflow-hidden py-3">
 
